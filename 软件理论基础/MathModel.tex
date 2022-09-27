@@ -1,0 +1,103 @@
+\documentclass[11pt,oneside,a4paper]{article}
+\usepackage{ctex}
+\usepackage{graphicx}
+
+\title{软件理论基础第一次作业 }
+\begin{document}
+\maketitle
+    \begin{itemize}
+        \item[1-(1)]
+        题目：证重言式\[(A \to (B \to C)) \to ((A \to B) \to (A \to C))\] \par
+        解：列出真值表
+        \begin{table}[!h]
+        \centering
+            \begin{tabular}{|l|l|l|c|}
+            \hline
+            A  & B  & C  & $(A \to (B \to C)) \to ((A \to B) \to (A \to C))$ \\ \hline
+            0  & 0 &  0  & 1 \\ \hline
+            0  & 0 &  1  & 1\\ \hline
+            0  & 1 &  0  & 1 \\ \hline
+            0  & 1 &  1  & 1 \\ \hline
+            1  & 0 &  0  & 1 \\ \hline
+            1  & 0 &  1  & 1 \\ \hline
+            1  & 1 &  0  & 1 \\ \hline
+            1  & 1 &  1  & 1 \\ \hline
+            \end{tabular}
+            \end{table}
+        由真值表可得公式为永真式
+        \item[1-(2)] 
+        题目：证重言式\[(\neg A \to \neg B) \to (B \to A)\]
+        解：
+        \[\begin{array}{l}
+            (\neg A \to \neg B) \to (B \to A)\\
+             = (\neg \neg A \vee \neg B) \to (B \to A)\\
+             = (A \vee \neg B) \to (B \to A)\\
+             = (\neg B \vee A) \to (B \to A)\\
+             = (B \to A) \to (B \to A)\\
+             = \neg (B \to A) \vee (B \to A)\\
+             = 1
+            \end{array}\]
+        因此此公式为永真式
+        \item[2-(1)]
+        题目:  \[(A \wedge B) \to C = (A \to C) \vee (B \to C)\] \par 
+        解:
+    \[\begin{array}{l}
+    leftform = (A \wedge B) \to C\\
+    = \neg (A \wedge B) \vee C\\
+    = \neg A \vee \neg B \vee C\\
+    = \neg A \vee C \vee \neg B \vee C\\
+    = \neg A \vee C \vee \neg B \vee C\\
+    = (A \to C) \vee (B \to C) \\
+    = rightform
+   \end{array}\]
+   由上述推导，左式等于右式,因此公式为永真式
+        \item[2-(2)] 
+        题目：\[(A \to (B \to C) = B \to (A \to C)\]
+        解：
+        \[\begin{array}{l}
+            leftfrom = (A \to (B \to C)\\
+            = A \to (\neg B \vee C)\\
+            = \neg A \vee (\neg B \vee C)\\
+            = \neg B \vee (\neg A \vee C)\\
+            = B \to (\neg A \vee C)\\
+            = B \to (A \to C) \\
+            = rightform
+           \end{array}\]
+    由上述推导，左式等于右式,因此公式为永真式
+    \newpage
+        \item[3] $(\neg \mathop p\nolimits_1  \to {\rm{ }}\mathop p\nolimits_2 {\rm{ }}){\rm{ }} \to \mathop p\nolimits_3$ 的析取范式和合取范式 \par
+        解：
+        \begin{table}[!h]
+        \centering
+            \begin{tabular}{|l|l|l|c|}
+            \hline
+            $p_1$ & $p_2$ & $p_3$ & $(\neg \mathop p\nolimits_1  \to {\rm{ }}\mathop p\nolimits_2 {\rm{ }}){\rm{ }} \to \mathop p\nolimits_3$ \\ \hline
+            0  & 0  & 0  & 1  \\ \hline
+            0  & 0  & 1  & 1  \\ \hline
+            0  & 1  & 0  & 0  \\ \hline
+            0  & 1  & 1  & 1  \\ \hline
+            1  & 0  & 0  & 0  \\ \hline
+            1  & 0  & 1  & 0  \\ \hline
+            1  & 1  & 0  & 0  \\ \hline
+            1  & 1  & 1  & 1  \\ \hline
+            \end{tabular}
+            \end{table}
+        
+        \par
+        由真值表易得\par
+        主析取范式为：
+        \[(\neg \mathop p\nolimits_1  \wedge {\rm{ }}\neg \mathop p\nolimits_2 {\rm{ }}\mathop { \wedge \neg p}\nolimits_3 ) \vee (\neg \mathop p\nolimits_1  \wedge {\rm{ }}\mathop {\neg p}\nolimits_2 {\rm{ }}\mathop { \wedge p}\nolimits_3 ) \vee (\neg \mathop p\nolimits_1  \wedge {\rm{ }}\mathop p\nolimits_2 {\rm{ }}\mathop { \wedge p}\nolimits_3 ) \vee (\mathop p\nolimits_1  \wedge {\rm{ }}\mathop p\nolimits_2 {\rm{ }}\mathop { \wedge p}\nolimits_3 )\]
+        主合取范式为:
+        \[(\mathop p\nolimits_1  \vee {\rm{ }}\neg \mathop p\nolimits_2 {\rm{ }} \vee \mathop p\nolimits_3 ) \wedge (\neg \mathop p\nolimits_1  \vee {\rm{ }}\mathop p\nolimits_2 {\rm{ }} \vee \mathop p\nolimits_3 ) \wedge (\mathop {\neg p}\nolimits_1  \vee {\rm{ }}\mathop p\nolimits_2  \vee \mathop p\nolimits_3 ) \wedge (\neg \mathop p\nolimits_1  \vee {\rm{ }}\neg \mathop p\nolimits_2 {\rm{ }} \vee \mathop p\nolimits_3 )\]
+        \item[4-(1)] 
+        题目：\[\left( {\mathop p\nolimits_1  \vee \mathop p\nolimits_2 } \right) \to \mathop p\nolimits_3 \]
+        解：\[\tau (\left( {{\rm{ }}{p_1} \vee {\rm{ }}{p_2}} \right) \to {\rm{ }}{p_3}) = \frac{5}{{\mathop 2\nolimits^3 }} = \frac{5}{8}\]
+        \item[4-(2)]
+        题目：\[\left( {\mathop p\nolimits_1  \to \mathop p\nolimits_2 } \right) \vee \left( {\mathop p\nolimits_3  \to \mathop p\nolimits_4 } \right)\]
+        解：\[\tau (\left( {{\rm{ }}{p_1} \to {\rm{ }}{p_2}} \right) \vee \left( {{\rm{ }}{p_3} \to {\rm{ }}{p_4}} \right)) = \frac{{15}}{{\mathop 2\nolimits^4 }} = \frac{{15}}{{16}}\]
+        \item[4-(3)]
+        题目：\[(\neg \mathop p\nolimits_1  \to {\rm{ }}\mathop p\nolimits_2 ) \to {\rm{ }}\mathop p\nolimits_3 \]
+        解： \[\tau ((\neg {\rm{ }}{p_1} \to {\rm{ }}{p_2}) \to {\rm{ }}{p_3}) = \frac{5}{{\mathop 2\nolimits^3 }} = \frac{{5}}{8}\]
+    \end{itemize}
+
+\end{document}
