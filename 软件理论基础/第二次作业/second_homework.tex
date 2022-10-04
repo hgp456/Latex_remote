@@ -1,0 +1,189 @@
+\documentclass[11pt,oneside,a4paper]{article}
+\author{黄国鹏}
+\usepackage{ctex}
+\usepackage{graphicx}
+\usepackage{tabularray}
+\usepackage{tagging}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\title{软件理论基础第二次作业 }
+\begin{document}
+\maketitle
+\begin{itemize}
+    \item[1.] 设$A \downarrow B $表示$\neg (A \vee B)$,证明连接符$\{ \downarrow \}$是命题逻辑连接符的充足集。
+    \item[2.] 
+        \begin{itemize}
+            \item[(1)] 证明\[ \vdash (B \to C) \to ((A \to B) \to (B \to C))\] \par
+            \textbf{证明:} \quad 由演绎定理,只需证明
+                            \begin{equation*}
+                               \{ (B \to C) \}  \vdash ((A \to B) \to (B \to C))
+                            \end{equation*}
+            \begin{itemize}
+                \item[(1)]  
+                            \begin{equation*}
+                                B \to C                      \tag*{$\varGamma$}
+                            \end{equation*}
+                \item[(2)] 
+                            \begin{equation*}
+                               (B \to C) \to ((A \to B) \to (B \to C))  \tag*{L2}
+                            \end{equation*}
+                \item[(3)]
+                            \begin{equation*}
+                                (A \to B) \to (B \to C)      \tag*{MP(1,2)}
+                            \end{equation*}
+            \end{itemize}
+            \item[(2)] 证明\[ \vdash (A \to (A \to B)) \to (A \to B)\] \par
+            \textbf{证明:} \quad 由演绎定理,只需证明
+                        \begin{equation*}
+                            \{ A \to (A \to B),A \} \vdash B
+                        \end{equation*}
+            构造推演序列如下：            
+            \begin{itemize}    
+                \item[(1)] \begin{equation*}
+                             A  \tag*{$\varGamma$}
+                            \end{equation*}
+                \item[(2)] 
+                           \begin{equation*}
+                            A \to (A \to B) \tag*{$\varGamma$}
+                           \end{equation*}
+                \item[(3)]
+                           \begin{equation*}
+                            A \to B \tag*{MP(1,2)}
+                           \end{equation*}  
+                \item[(4)]
+                           \begin{equation*}
+                               B \tag*{MP(1,3)}
+                           \end{equation*}  
+            \end{itemize}
+            
+        \end{itemize}
+    \item[3.] 试证:
+        \begin{itemize}
+            \item[(1)]   证明\[(A \to (B \to C)) \approx (B \to (A \to C))\]
+            \textbf{证明} 
+            \begin{itemize}
+                \item[1.] \[  \vdash  (A \to (B \to C)) \to (B \to (A \to C)) \] \par
+                    由演绎定理,只需证明 
+                                \[ \{A \to (B \to C),B\} \vdash (A \to C) \]
+                    构造推演序列如下：
+                    \begin{enumerate}
+                        \item[(1)] 
+                                \begin{equation*}
+                                     A \to (B \to C)             \tag*{$\varGamma$}
+                                \end{equation*}                    
+                        \item[(2)] 
+                                \begin{equation*}
+                                    (A \to (B \to C)) \to ((A \to B) \to (A \to C)) \tag*{L2}
+                                \end{equation*}
+                        \item[(3)]
+                                \begin{equation*}
+                                   (A \to B) \to (A \to C)      \tag*{MP(1,2)}
+                                \end{equation*}
+                        \item[(4)]
+                                \begin{equation*}
+                                    B                           \tag*{$\varGamma$}
+                                \end{equation*}
+                        \item[(5)]
+                                \begin{equation*}
+                                        B \to (A \to B)         \tag*{L1}
+                                \end{equation*}
+                        \item[(6)]
+                                \begin{equation*}
+                                        A \to B         \tag*{MP(4,5)}
+                                \end{equation*}
+                        \item[(7)]
+                                \begin{equation*}
+                                        A \to C         \tag*{MP(3,6)}
+                                \end{equation*}                               
+                    \end{enumerate}
+                    故$\{A \to (B \to C),B\} \vdash (A \to C)$,即$\vdash (A \to (B \to C)) \to (B \to (A \to C))$
+                
+                \item[2.] \[ \vdash (B \to (A \to C)) \to (A \to (B \to C)) \] \par
+                    由演绎定理,只需证明 
+                                \[ \{B \to (A \to C),A\} \vdash (B \to C) \]
+                    构造推演序列如下：
+                    \begin{enumerate}
+                        \item[(1)] 
+                                \begin{equation*}
+                                     B \to (A \to C)             \tag*{$\varGamma$}
+                                \end{equation*}                    
+                        \item[(2)] 
+                                \begin{equation*}
+                                    (B \to (A \to C)) \to ((B \to A) \to (B \to C)) \tag*{L2}
+                                \end{equation*}
+                        \item[(3)]
+                                \begin{equation*}
+                                   (B \to A) \to (B \to C)      \tag*{MP(1,2)}
+                                \end{equation*}
+                        \item[(4)]
+                                \begin{equation*}
+                                    A                           \tag*{$\varGamma$}
+                                \end{equation*}
+                        \item[(5)]
+                                \begin{equation*}
+                                        A \to (B \to A)         \tag*{L1}
+                                \end{equation*}
+                        \item[(6)]
+                                \begin{equation*}
+                                        B \to A         \tag*{MP(4,5)}
+                                \end{equation*}
+                        \item[(7)]
+                                \begin{equation*}
+                                        B \to C         \tag*{MP(3,6)}
+                                \end{equation*}                               
+                    \end{enumerate}
+                    故$\{B \to (A \to C),A\} \vdash (B \to C)$,即$\vdash  (B \to (A \to C)) \to (A \to (B \to C))$   
+            \end{itemize}
+            因此,\[(A \to (B \to C)) \approx (B \to (A \to C))\]
+
+            \item[(2)]   证明\[(A \to (A \to B)) \approx (A \to B)\]
+            \textbf{证明}
+            \begin{itemize}
+                \item[1.]   \[\{ A \to (A \to B)\}  \vdash (A \to B)\]
+                    由演绎定理,只需证明
+                            \[\{ A \to (A \to B),A\}  \vdash (B)\]
+                    \begin{enumerate}
+                        \item[(1)]
+                                \begin{equation*}
+                                    A \tag*{$\varGamma$}
+                                \end{equation*}
+                        \item[(2)]
+                                \begin{equation*}
+                                    A \to (A \to B) \tag*{$\varGamma$}
+                                \end{equation*}
+                        \item[(3)]
+                                \begin{equation*}
+                                    A \to B \tag*{MP(1,2)}
+                                \end{equation*}
+                        \item[(4)]
+                                \begin{equation*}
+                                   B \tag*{MP(1,3)}
+                                \end{equation*}
+                    \end{enumerate}
+                    故\[\{ A \to (A \to B),A\}  \vdash (B)\]
+                    即\[ \vdash (A \to (A \to B)) \to (A \to B)\]
+                \item[2.]   \[\{ A \to B \}  \vdash  (A \to (A \to B)) \]
+                    \begin{enumerate}
+                        \item[(1)]
+                                \begin{equation*}
+                                    A \to B                         \tag*{$\varGamma$}
+                                \end{equation*}
+                        \item[(2)]
+                                \begin{equation*}
+                                    (A \to B) \to (A \to (A \to B)) \tag*{L1}
+                                \end{equation*}
+                        \item[(3)]
+                                \begin{equation*}
+                                    A \to (A \to B)                 \tag*{MP(1,2)}
+                                \end{equation*}
+                    \end{enumerate}
+                    故\[\{ A \to B \}  \vdash  (A \to (A \to B)) \]
+                    即\[ \vdash (A \to B) \to (A \to (A \to B))\]
+                
+
+            \end{itemize}
+            因此，\[(A \to (A \to B)) \approx (A \to B)\]
+        \end{itemize}
+\end{itemize}
+
+\end{document}
