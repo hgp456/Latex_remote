@@ -6,7 +6,78 @@
 \usepackage{tagging}
 \usepackage{amsthm}
 \usepackage{amsmath}
-\title{软件理论基础第二次作业 }
+\title{软件理论基础第三次作业 }
 \begin{document}
 \maketitle
+\begin{enumerate}
+    \item 利用$L$的完备性定理证明以下各式成立
+    \begin{enumerate}
+        \item[(1)] $\vdash \neg(A \rightarrow B) \rightarrow(B \rightarrow A)$
+        证：由逻辑等价：
+        \[\begin{array}{l}
+            \neg (A \to B) \to (B \to A)\\
+             = \neg \neg (A \to B) \vee (B \to A)\\
+             = (\neg A \vee B) \vee (\neg B \vee A)\\
+             = \neg A \vee A \vee B \vee \neg B\\
+             = 1
+            \end{array}\]
+        任取$v \in \Omega$,有$v(\neg (A \to B) \to (B \to A))=1$
+        
+        因此$\models \neg (A \to B) \to (B \to A)$
+
+        由完备性定理$\vdash \neg(A \rightarrow B) \rightarrow(B \rightarrow A)$
+
+
+        \item[(2)]$((A \vee B) \rightarrow C) \approx(A \rightarrow C) \wedge(B \rightarrow C)$
+        
+        证：由逻辑等价：
+        \[\begin{array}{l}
+              (A \vee B) \to C\\
+             = \neg (A \vee B) \vee C\\
+             = (\neg A \wedge \neg B) \vee C\\
+             = (\neg A \vee C) \wedge (\neg B \vee C)\\
+             = (A \to C) \wedge (B \to C)
+            \end{array}\]
+        任取$v \in \Omega$,有$v((A \vee B) \to C) = v((A \to C) \wedge (B \to C))$
+
+        因此$\models ((A \vee B) \rightarrow C) \to (A \rightarrow C) \wedge(B \rightarrow C)$
+
+        由完备性定理$\vdash ((A \vee B) \rightarrow C) \to (A \rightarrow C) \wedge(B \rightarrow C)$
+
+        同理可得$ \vdash ((A \to C) \wedge (B \to C)) \to ((A \vee B) \to C)$
+
+        因此可得$((A \vee B) \rightarrow C) \approx(A \rightarrow C) \wedge(B \rightarrow C)$
+        证毕
+
+
+        \item[(3)]$((A \wedge B) \rightarrow C) \approx(A \rightarrow C) \vee(B \rightarrow C)$
+        
+        证：由逻辑等价：
+        \[\begin{array}{l}
+            (A \wedge B) \to C\\
+             = (\neg (A \wedge B) \vee C)\\
+             = \neg A \vee \neg B \vee C\\
+             = \neg A \vee \neg B \vee C \vee C\\
+             = \neg A \vee C \vee \neg B \vee C\\
+             = (A \to C) \vee (B \to C)
+            \end{array}\]
+        任取$v \in \Omega$,有$v((A \wedge B) \to C) = v((A \to C) \vee (B \to C))$
+
+        因此$\models ((A \wedge B) \to C) \to ((A \to C) \vee (B \to C))$
+
+        由完备性定理$\vdash ((A \wedge B) \to C) \to ((A \to C) \vee (B \to C))$
+        
+        同理可得$ \vdash ((A \to C) \vee (B \to C)) \to ((A \wedge B) \to C)$
+
+        因此可得$((A \wedge B) \rightarrow C) \approx(A \rightarrow C) \vee(B \rightarrow C)$
+        证毕
+
+
+
+
+
+
+    \end{enumerate}
+    \item 
+\end{enumerate}
 \end{document}

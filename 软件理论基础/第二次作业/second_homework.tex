@@ -11,6 +11,22 @@
 \maketitle
 \begin{itemize}
     \item[1.] 设$A \downarrow B $表示$\neg (A \vee B)$,证明连接符$\{ \downarrow \}$是命题逻辑连接符的充足集。
+        
+        \textbf{证明:}
+
+            由数学归纳法:若$\lvert F \vert = 1$,即$F$为原子公式。则必为一个原子命题或其否定形式,记原子命题为$p$,则$F = p$或$F = \neg P $成立,则有：
+            \begin{enumerate}
+                \item[(1)]\[F = p = \neg \neg (p \vee p) = \neg (p \downarrow p) = \neg ((p \downarrow {\rm{p}}) \vee (p \downarrow p)) = ({\rm{p}} \downarrow p) \downarrow (p \downarrow p)\]
+                \item[(2)]\[F = \neg p = \neg (p \vee p) = p \downarrow p\]
+            \end{enumerate}
+            假设对于所有的公式$F$,若$\lvert F \vert < n$则$F$能用'$\downarrow$'表示，现考虑$\lvert F \vert = n$
+            \begin{enumerate}
+                \item[(1)]若$F=\neg A$ ($A$为 $F$的子公式),可得: 
+                \[F = \neg A = \neg (A \vee A){\rm{ }} = A \downarrow A.\]
+                \item[(2)]若$F = A \vee B$ ($A$,$B$为F的子公式),可得:
+                \[F = A \vee B = \neg (\neg (A \vee B)){\rm{ }} = \neg (A \downarrow B){\rm{ }} = {\rm{ }}(A \downarrow B) \downarrow (A \downarrow B)\]
+            \end{enumerate}
+            因此,无论何种情况A、B必能由'$\downarrow$'表示,所以由数学归纳法可得所有公式$F$均能用'$\downarrow$'表示,即$\left\{  \downarrow  \right\}$ 是充足集。
     \item[2.] 
         \begin{itemize}
             \item[(1)] 证明\[ \vdash (B \to C) \to ((A \to B) \to (B \to C))\] \par
